@@ -11,7 +11,7 @@ class Auth{
         $this->pdo = $pdo;
     }
 
-    function getUserByEmail($email){
+    public function getUserByEmail($email){
         $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,19 +19,18 @@ class Auth{
         return $user;
     }
 
-    function registerUser($name, $email, $password, $role){
+    public function registerUser($name, $email, $password, $role){
         // verify is email already exist
         $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
-        if($stmt->fetch()){
-            header("Location:signup.php?error=empty");
-            exit;
-        }
+        $stmt->fetch();
+         
+    
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $stmt = $this->pdo->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)");
         $stmt->execute([$name, $email, $hashedPassword, $role]);
-        header("Location:student-management-system\auth");
+
     }
 }

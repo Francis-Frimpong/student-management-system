@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Role-Based Auth UI</title>
+  <title>Student Management System/Auth</title>
 
   <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,22 +49,22 @@
   </div>
 
   <!-- LOGIN FORM -->
-  <form id="loginForm">
+  <form id="loginForm" method="POST" action="student-management-system\auth">
     <h4 class="text-center mb-3">Login</h4>
 
     <div class="mb-3">
       <label>Email</label>
-      <input type="email" class="form-control" placeholder="Enter email">
+      <input type="email" class="form-control" placeholder="Enter email" name="email">
     </div>
 
     <div class="mb-3">
       <label>Password</label>
-      <input type="password" class="form-control" placeholder="Enter password">
+      <input type="password" class="form-control" placeholder="Enter password"  name="password">
     </div>
 
     <div class="mb-3 role-select">
       <label>Login as</label>
-      <select class="form-select">
+      <select class="form-select" name="role">
         <option value="admin">Admin</option>
         <option value="teacher">Teacher</option>
         <option value="parent">Parent</option>
@@ -75,27 +75,27 @@
   </form>
 
   <!-- SIGNUP FORM -->
-  <form id="signupForm" class="hidden">
+  <form id="signupForm" class="hidden"  method="POST" action="student-management-system\auth">
     <h4 class="text-center mb-3">Sign Up</h4>
 
     <div class="mb-3">
       <label>Full Name</label>
-      <input type="text" class="form-control" placeholder="Enter full name">
+      <input type="text" class="form-control" placeholder="Enter full name" name="name">
     </div>
 
     <div class="mb-3">
       <label>Email</label>
-      <input type="email" class="form-control" placeholder="Enter email">
+      <input type="email" class="form-control" placeholder="Enter email" name="email">
     </div>
 
     <div class="mb-3">
       <label>Password</label>
-      <input type="password" class="form-control" placeholder="Create password">
+      <input type="password" class="form-control" placeholder="Create password" name="password">
     </div>
 
     <div class="mb-3 role-select">
       <label>Register as</label>
-      <select class="form-select">
+      <select class="form-select" name="role">
         <option value="teacher">Teacher</option>
         <option value="parent">Parent</option>
       </select>

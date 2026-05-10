@@ -11,7 +11,7 @@ class Database
     {
         if(!self::$pdo){
             self::$pdo = new PDO(
-                 'mysql:host=localhost;dbname=inventory_db;charset=utf8mb4', 
+                 'mysql:host=localhost;dbname=school_system;charset=utf8mb4', 
                 'root', 
                 '', 
                 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
